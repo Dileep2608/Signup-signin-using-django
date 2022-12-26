@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login_signup/login_signup.css' %}">
+
+
+</head>
+<body>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Login Form</div>
+        <div class="title signup">Signup Form</div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Login</label>
+          <label for="signup" class="slide signup">Signup</label>
+          <div class="slider-tab"></div>
+        </div>
+        {% for message in messages %}
+        <h5 style="color: red; font-size: large; text-align: center;">{{message}}</h5>
+        {% endfor %}
+        <div class="form-inner">
+          <form action="#" method="POST" class="login">
+            {% csrf_token %}
+            <div class="field">
+              <input type="email" placeholder="Email Address" name="email" id="email" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" name="password" id="password" required>
+            </div>
+            <div class="pass-link"><a href="password_reset">Forgot password?</a></div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+          </form>
+      </div>
+    </div>
+    <!-- javascript -->
+    <script src="{% static 'login_signup/login_signup.js' %}"></script>
+
+</body>
+</html>

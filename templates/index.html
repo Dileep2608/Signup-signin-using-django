@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!--favicons-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'homepage/fonts/icomoon/style.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'homepage/css/owl.carousel.min.css' %}" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'homepage/css/bootstrap.min.css' %}" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'homepage/css/style.css' %}" />
+    <!--contact -->
+    
+    <link
+      href="{% static 'homepage/contact-assets/img/apple-touch-icon.png' %}"
+      rel="apple-touch-icon"
+    />
+    <link href="{% static 'homepage/contact-assets/css/style.css' %}" rel="stylesheet" />
+
+    <title>Signup/Signin with Django</title>
+
+    <!--vendor css contact-->
+    <link
+      href="{% static 'homepage/contact-assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'homepage/contact-assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'homepage/contact-assets/vendor/boxicons/css/boxicons.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'homepage/contact-assets/vendor/glightbox/css/glightbox.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'homepage/contact-assets/vendor/remixicon/remixicon.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'homepage/contact-assets/vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />
+    <!--css ends contact-->
+  
+  </head>
+  <body style="background-color: aquamarine;">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar" role="banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-11 col-xl-2">
+            <span style="white-space: nowrap"
+              >
+              <h1 class="mb-0 site-logo">
+                <a href="/" class="text-white mb-0" style="font-size: 2.5rem; ">Signup/Signin </a>
+              </h1></span
+            >
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav
+              class="site-navigation position-relative text-right"
+              role="navigation"
+            >
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active">
+                  <a href="/"><span>Home</span></a>
+                </li>
+                
+                
+                {% if user.is_authenticated %}
+                <li>
+                  <a href="logout"><span>Logout</span></a>
+                </li>
+                {% else %}
+                <li>
+                  <a href="signup"><span>Signup</span></a>
+                </li>
+                <li >
+                  <a href="login"><span>Signin</span></a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+
+          <div
+            class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
+            style="position: relative; top: 3px"
+          >
+            <a href="#" class="site-menu-toggle js-menu-toggle text-white"
+              ><span class="icon-menu h3"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+
+    <div class="welcome_page">
+      <h1>Signup/Signin with Django</h1>
+      {% if user.is_authenticated %}
+      <h2>Hello, {{user.first_name}}</h2>
+      <button><a href="logout">Logout</a></a></button>
+      {% else %}
+      <!-- <button><a href="signup">Register</a></button>
+      <button><a href="login">Signin</a></button> -->
+      <div>
+        <button><a href="signup">Signup</a></button>
+      </div>
+      <div>
+        <button><a href="login">Login</a></button>
+      </div>
+      {% endif %}
+    </div>
+
+    </header>
+    
+
+    
+
+    <script src="{% static 'homepage/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'homepage/js/popper.min.js' %}"></script>
+    <script src="{% static 'homepage/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'homepage/js/main.js' %}"></script>
+    <script src="{% static 'homepage/contact-assets/js/main.js' %}"></script>
+  </body>
+</html>
